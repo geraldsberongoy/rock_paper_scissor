@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Rock Paper Scissors Game</h1>
+    <p>Choose your weapon!</p>
+    <div class="choices">
+        <form action="/" method="post">
+            <button type="submit" name="choice" value="rock">
+                <img src="{{ url_for('static', filename='images/rock.png') }}" alt="Rock">
+            </button>
+            <button type="submit" name="choice" value="paper">
+                <img src="{{ url_for('static', filename='images/paper.png') }}" alt="Paper">
+            </button>
+            <button type="submit" name="choice" value="scissor">
+                <img src="{{ url_for('static', filename='images/scissor.png') }}" alt="Scissor">
+            </button>
+        </form>
+    </div>
+    {% if result %}
+    <p>Opponent's choice:  <span class="bold">{{ opponent_choice }} </span></p>
+    <p>Result: <span class="bold">{{ result }}</span></p>
+    {% endif %}
+</body>
+</html>

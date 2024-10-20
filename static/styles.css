@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.choices button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+.choices img {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+.choices img:hover {
+    transform: scale(1.2);
+    border: 2px solid black;
+}
+.bold {
+    font-weight: bold;
+}

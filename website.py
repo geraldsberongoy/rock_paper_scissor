@@ -24,12 +24,8 @@ def game():
         # Get the player's choice from the form submission and convert it to lowercase
         player_choice = request.form.get("choice", "").lower()
 
-        # Validate player's choice
-        if player_choice not in CHOICES:
-            result_text = "Invalid choice. Please select rock, paper, or scissor."
-        else:
-            # Determine the result
-            result_text = get_game_result(player_choice, opponent_choice)
+        # Get the game result based on the player's choice and opponent's choice
+        result_text = get_game_result(player_choice, opponent_choice)
         
         # Render the template with the result and opponent's choice
         return render_template("index.html", result=result_text, opponent_choice=opponent_choice.capitalize())

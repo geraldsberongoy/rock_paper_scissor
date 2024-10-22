@@ -9,6 +9,7 @@ CHOICES = ["paper", "rock", "scissor"]
 # Initialize scores for the player and opponent
 player_score = 0
 computer_score = 0
+draw_score = 0
 
 def get_game_result(player_choice, opponent_choice):
     """Determine the game result based on player and opponent choices."""
@@ -22,7 +23,7 @@ def get_game_result(player_choice, opponent_choice):
 @app.route("/", methods=["GET", "POST"])
 def game():
     """Play a game of Rock, Paper, Scissors."""
-    global player_score, computer_score
+    global player_score, computer_score, draw_score
     if request.method == "POST":
         # Randomly select the opponent's choice
         opponent_choice = random.choice(CHOICES)
@@ -36,14 +37,16 @@ def game():
         # Update the scores based on the game result
         if result_text == "Win":
             player_score += 1
+        elif result_text == "Draw":
+            draw_score += 1
         else:
             computer_score += 1
         
         # Render the template with the result and opponent's choice
-        return render_template("index.html", result=result_text, opponent_choice=opponent_choice.capitalize(), player_score=player_score, computer_score=computer_score)
+        return render_template("index.html", result=result_text, opponent_choice=opponent_choice.capitalize(), player_score=player_score, computer_score=computer_score, draw_score=draw_score)
     else:
         # Render the template for a GET request with no result
-        return render_template("index.html", result=None, opponent_choice=None, player_score=player_score, computer_score=computer_score)
+        return render_template("index.html", result=None, opponent_choice=None, player_score=player_score, computer_score=computer_score, draw_score=draw_score)
 
 if __name__ == "__main__":
     # Run the Flask app in debug mode

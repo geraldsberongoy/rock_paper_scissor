@@ -9,6 +9,10 @@
 <body>
     <h1>Rock Paper Scissors Game</h1>
     <p>Choose your weapon!</p>
+    <div class="score">
+        <p>Player Score: <span class="bold">{{ player_score }}</span></p>
+        <p>Computer Score: <span class="bold">{{ computer_score }}</span></p>
+    </div>
     <div class="choices">
         <form action="/" method="post">
             <button type="submit" name="choice" value="rock">
@@ -24,7 +28,7 @@
     </div>
     {% if result %}
     <p>Opponent's choice:  <span class="bold">{{ opponent_choice }} </span></p>
-    <p>Result: <span class="bold">{{ result }}</span></p>
+    <p>Result: <span class="bold red", >{{ result }}</span></p>
     {% endif %}
 </body>
 </html>
